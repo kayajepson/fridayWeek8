@@ -99,11 +99,6 @@ namespace HairSalon.Models
         return newStylist;
       }
 
-      // public void AddClient(Client client)
-      // {
-      //   _clients.Add(client);
-      // }
-
       public List<Client> GetClients()
       {
         List<Client> allStylistClients = new List<Client>{};
@@ -162,7 +157,7 @@ namespace HairSalon.Models
         specialty.Value = this._specialty;
         cmd.Parameters.Add(specialty);
         cmd.ExecuteNonQuery();
-        _id = (int) cmd.LastInsertedId; // <-- This line is new!
+        _id = (int) cmd.LastInsertedId;
         conn.Close();
         if (conn != null)
         {
@@ -170,7 +165,7 @@ namespace HairSalon.Models
         }
       }
 
-      public void DeleteCat(int stylistId)
+      public void DeleteStylist(int stylistId)
       {
         MySqlConnection conn = DB.Connection();
         conn.Open();
@@ -178,13 +173,13 @@ namespace HairSalon.Models
 
         Stylist selectedStylist = Stylist.Find(stylistId);
         Dictionary<string, object> model = new Dictionary<string, object>();
-        // List<Client> stylistClients = selectedStylist.GetClients();
+        List<Client> stylistClients = selectedStylist.GetClients();
         model.Add("stylist", selectedStylist);
 
-        // foreach (Client client in stylistClients)
-        // {
-        //   client.Delete();
-        // }
+        foreach (Client client in stylistClients)
+        {
+          client.Delete();
+        }
 
         cmd.CommandText = @"DELETE FROM stylists WHERE id = @thisId;";
         MySqlParameter thisId = new MySqlParameter();
@@ -199,6 +194,36 @@ namespace HairSalon.Models
           conn.Dispose();
         }
       }
+
+ //      public void DeleteCat(int categoryId)
+ // {
+ //   MySqlConnection conn = DB.Connection();
+ //   conn.Open();
+ //   var cmd = conn.CreateCommand() as MySqlCommand;
+ //
+ //   Stylist selectedStylist = Stylist.Find(stylistId);
+ //   Dictionary<string, object> model = new Dictionary<string, object>();
+ //   List<Client> stylistClients = selectedStylist.GetClients();
+ //   model.Add("stylist", selectedStylist);
+ //
+ //   foreach (Client client in stylistClients)
+ //   {
+ //     client.Delete();
+ //   }
+ //
+ //   cmd.CommandText = @"DELETE FROM stylists WHERE id = @thisId;";
+ //   MySqlParameter thisId = new MySqlParameter();
+ //   thisId.ParameterName = "@thisId";
+ //   thisId.Value = _id;
+ //   cmd.Parameters.Add(thisId);
+ //   cmd.ExecuteNonQuery();
+ //
+ //   conn.Close();
+ //   if (conn != null)
+ //   {
+ //     conn.Dispose();
+ //   }
+ // }
 
 
 

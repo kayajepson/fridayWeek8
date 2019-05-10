@@ -91,10 +91,6 @@ namespace HairSalon.Models
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
       cmd.CommandText = @"INSERT INTO clients (name, stylistId) VALUES (@NameClient, @stylistId);";
-      // MySqlParameter name = new MySqlParameter();
-      // name.ParameterName = "@NameClient";
-      // name.Value = this._name;
-      // cmd.Parameters.Add(name);
       cmd.Parameters.AddWithValue("@NameClient", _name);
       cmd.Parameters.AddWithValue("@stylistId", _stylistId);
       cmd.ExecuteNonQuery();
@@ -114,10 +110,6 @@ namespace HairSalon.Models
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
       cmd.CommandText = @"SELECT * FROM clients WHERE id = (@searchId);";
-      // MySqlParameter searchId = new MySqlParameter();
-      // searchId.ParameterName = "@searchId";
-      // searchId.Value = id;
-      // cmd.Parameters.Add(searchId);
       cmd.Parameters.AddWithValue("@searchId", id);
       var rdr = cmd.ExecuteReader() as MySqlDataReader;
       int itemId = 0;

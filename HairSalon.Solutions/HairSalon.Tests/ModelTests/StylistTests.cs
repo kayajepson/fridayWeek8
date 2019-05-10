@@ -73,37 +73,6 @@ namespace HairSalon.Tests
       Assert.AreEqual(testStylist, foundStylist);
     }
 
-    // [TestMethod]
-    // public void GetItems_ReturnsEmptyItemList_ItemList()
-    // {
-    //   //Arrange
-    //   string name = "suzie";
-    //   Stylist newStylist = new Stylist(name);
-    //   List<Item> newList = new List<Item> { };
-    //
-    //   //Act
-    //   List<Item> result = newStylist.GetItems();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(newList, result);
-    // }
-
-    // [TestMethod]
-    // public void GetItems_RetrievesAllItemsWithStylist_ItemList()
-    // {
-    //   //Arrange, Act
-    //   Stylist testStylist = new Stylist("suzie");
-    //   testStylist.Save();
-    //   Item firstItem = new Item ("Mow the lawn", testStylist.GetId());
-    //   firstItem.Save();
-    //   Item secondItem = new Item("Do the dishes", testStylist.GetId());
-    //   secondItem.Save();
-    //   List<Item>testItemList = new List<Item> {firstItem, secondItem};
-    //   List<Item>resultItemList = testStylist.GetItems();
-    //
-    //   //Assert
-    //   CollectionAssert.AreEqual(testItemList, resultItemList);
-    // }
 
     [TestMethod]
     public void GetAll_CategoriesEmptyAtFirst_List()
@@ -140,22 +109,6 @@ namespace HairSalon.Tests
       CollectionAssert.AreEqual(testList, result);
     }
 
-    // [TestMethod]
-    // public void Save_DatabaseAssignsIdTostylistId()
-    // {
-    //   //Arrange
-    //   Stylist testStylist = new Stylist("suzie");
-    //   testStylist.Save();
-    //
-    //   //Act
-    //   Stylist savedStylist = Stylist.GetAll()[0];
-    //
-    //   int result = savedStylist.GetId();
-    //   int testId = testStylist.GetId();
-    //
-    //   //Assert
-    //   Assert.AreEqual(testId, result);
-    // }
 
   }
 }

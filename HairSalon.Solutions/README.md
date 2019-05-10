@@ -17,9 +17,17 @@ _A program that will show stylists at a salon and their corresponding client lis
 
 ## Setup/Installation Requirements
 
-* _Clone from github_
-* _Run with dotnet_
+* _Clone project from github_
+* _view code in text editor if necessary_
+*_any text inside quotations ("") should be performed inside your terminal._
+* _use mysql to manage database (google for operating system specifics on how to connect)_
+*_"CREATE DATABASE kaya_jepson;"_
+*_"USE kaya_jepson;"_
+*_"CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR(255), specialty VARCHAR(255));"_
+*_"CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR(255), stylistId VARCHAR(255));"_
+*_use "dotnet restore" and "dotnet build" and "dotnet run" in the production folder (HairSalon)
 * _View at localhost:5000_
+* _use the UI to modify stylists and clients_
 
 ## Known Bugs
 
@@ -36,9 +44,3 @@ _C#_
 ### License
 
 Copyright <2019> <Kaya Jepson>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
