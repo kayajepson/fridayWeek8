@@ -44,10 +44,10 @@ namespace HairSalon.Controllers
     }
 
     [HttpPost("/stylists/{stylistId}/clients/{clientId}")]
-    public ActionResult Update(int stylistId, int clientId, string newDescription)
+    public ActionResult Update(int stylistId, int clientId, string newNameClient)
     {
       Client client = Client.Find(clientId);
-      client.Edit(newDescription);
+      client.Edit(newNameClient);
       Dictionary<string, object> model = new Dictionary<string, object>();
       Stylist stylist = Stylist.Find(stylistId);
       model.Add("stylist", stylist);
@@ -65,7 +65,7 @@ namespace HairSalon.Controllers
       List<Client> stylistClients = foundStylist.GetClients();
       model.Add("client", stylistClients);
       model.Add("stylist", foundStylist);
-      return RedirectToAction("Show", "Categories");
+      return RedirectToAction("Show", "Stylists");
       //return RedirectToAction("actionName", "controllerName"); goes to a cshtml page in a different controller.
     }
 

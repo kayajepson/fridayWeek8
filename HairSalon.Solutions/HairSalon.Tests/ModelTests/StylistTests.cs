@@ -75,7 +75,7 @@ namespace HairSalon.Tests
 
 
     [TestMethod]
-    public void GetAll_CategoriesEmptyAtFirst_List()
+    public void GetAll_StylistsEmptyAtFirst_List()
     {
       //Arrange, Act
       int result = Stylist.GetAll().Count;

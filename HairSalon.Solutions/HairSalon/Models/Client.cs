@@ -41,10 +41,10 @@ namespace HairSalon.Models
       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
       while(rdr.Read())
       {
-        int itemId = rdr.GetInt32(0);
-        string itemNameClient = rdr.GetString(1);
-        int itemCategoryId = rdr.GetInt32(2);
-        Client newClient = new Client(itemNameClient, itemCategoryId, itemId);
+        int clientId = rdr.GetInt32(0);
+        string clientNameClient = rdr.GetString(1);
+        int clientStylistId = rdr.GetInt32(2);
+        Client newClient = new Client(clientNameClient, clientStylistId, clientId);
         allClients.Add(newClient);
       }
       conn.Close();
@@ -80,7 +80,7 @@ namespace HairSalon.Models
         Client newClient = (Client) otherClient;
         bool idEquality = (this.GetId() == newClient.GetId());
         bool nameEquality = (this.GetNameClient() == newClient.GetNameClient());
-        bool stylistEquality = this.GetCategoryId() == newClient.GetCategoryId();
+        bool stylistEquality = this.GetStylistId() == newClient.GetStylistId();
         return (idEquality && nameEquality && stylistEquality);
       }
     }
@@ -112,16 +112,16 @@ namespace HairSalon.Models
       cmd.CommandText = @"SELECT * FROM clients WHERE id = (@searchId);";
       cmd.Parameters.AddWithValue("@searchId", id);
       var rdr = cmd.ExecuteReader() as MySqlDataReader;
-      int itemId = 0;
-      string itemName = "";
-      int itemCategoryId = 0;
+      int clientId = 0;
+      string clientName = "";
+      int clientStylistId = 0;
       while(rdr.Read())
       {
-        itemId = rdr.GetInt32(0);
-        itemName = rdr.GetString(1);
-        itemCategoryId = rdr.GetInt32(2);
+        clientId = rdr.GetInt32(0);
+        clientName = rdr.GetString(1);
+        clientStylistId = rdr.GetInt32(2);
       }
-      Client newClient = new Client(itemName, itemCategoryId, itemId);
+      Client newClient = new Client(clientName, clientStylistId, clientId);
       conn.Close();
       if (conn != null)
       {
@@ -148,7 +148,7 @@ namespace HairSalon.Models
       }
     }
 
-    public int GetCategoryId()
+    public int GetStylistId()
     {
       return _stylistId;
     }
