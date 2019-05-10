@@ -30,22 +30,22 @@ namespace HairSalon.Tests
     public void GetNameClient_ReturnsNameClient_String()
     {
       //Arrange
-      string clientName = "Jessica";
-      Client newClient = new Client(clientName, 1);
+      string nameClient = "Jessica";
+      Client newClient = new Client(nameClient, 1);
 
       //Act
       string result = newClient.GetNameClient();
 
       //Assert
-      Assert.AreEqual(clientName, result);
+      Assert.AreEqual(nameClient, result);
     }
 
     [TestMethod]
     public void SetNameClient_SetNameClient_String()
     {
       //Arrange
-      string clientName = "Jessica";
-      Client newClient = new Client(clientName, 1);
+      string nameClient = "Jessica";
+      Client newClient = new Client(nameClient, 1);
 
       //Act
       string updatedNameClient = "Carmen";
@@ -73,11 +73,11 @@ namespace HairSalon.Tests
     public void GetAll_ReturnsClients_ClientList()
     {
       //Arrange
-      string clientName01 = "Jessica";
-      string clientName02 = "Carmen";
-      Client newClient1 = new Client(clientName01, 1);
+      string nameClient01 = "Jessica";
+      string nameClient02 = "Carmen";
+      Client newClient1 = new Client(nameClient01, 1);
       newClient1.Save();
-      Client newClient2 = new Client(clientName02, 1);
+      Client newClient2 = new Client(nameClient02, 1);
       newClient2.Save();
       List<Client> newList = new List<Client> { newClient1, newClient2 };
 
