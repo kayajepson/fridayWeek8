@@ -10,7 +10,7 @@ namespace HairSalon.Tests
   {
     public StylistTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=kaya;password=kayaspassword;port=8889;database=kaya_jepson_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=school;password=school;port=3306;database=kaya_jepson_test;";
     }
 
     public void Dispose()
@@ -140,22 +140,22 @@ namespace HairSalon.Tests
       CollectionAssert.AreEqual(testList, result);
     }
 
-    [TestMethod]
-    public void Save_DatabaseAssignsIdToStylist_Id()
-    {
-      //Arrange
-      Stylist testStylist = new Stylist("suzie");
-      testStylist.Save();
-
-      //Act
-      Stylist savedStylist = Stylist.GetAll()[0];
-
-      int result = savedStylist.GetId();
-      int testId = testStylist.GetId();
-
-      //Assert
-      Assert.AreEqual(testId, result);
-    }
+    // [TestMethod]
+    // public void Save_DatabaseAssignsIdTostylistId()
+    // {
+    //   //Arrange
+    //   Stylist testStylist = new Stylist("suzie");
+    //   testStylist.Save();
+    //
+    //   //Act
+    //   Stylist savedStylist = Stylist.GetAll()[0];
+    //
+    //   int result = savedStylist.GetId();
+    //   int testId = testStylist.GetId();
+    //
+    //   //Assert
+    //   Assert.AreEqual(testId, result);
+    // }
 
   }
 }
