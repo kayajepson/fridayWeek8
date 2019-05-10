@@ -3,6 +3,7 @@ body {
   background-color: #ffeffc;
   background-image: url("../img/hair.jpg");
   background-size: cover;
+  font-family: 'Playfair Display', serif;
 }
 
 footer {
@@ -13,4 +14,5 @@ footer {
   left: 0px;
   width: 100%;
   padding: 20px;
+  font-family: 'Playfair Display', serif;
 }

@@ -2,11 +2,11 @@
   Layout = "_Layout";
 }
 
-<h1>Stylists</h1>
+<h1>//STYLISTS//</h1>
 
 @if (@Model.Count == 0)
 {
-  <h3>No Stylists have been added yet!</h3>
+  <h3>NO STYLISTS HAVE BEEN ADDED YET!</h3>
 }
 
 @foreach (var stylist in Model)
@@ -14,5 +14,5 @@
   <h3><a href='/stylists/@stylist.GetId()'>@stylist.GetName()</a></h3>
 }
 
-<a href="/stylists/new">Add a stylist</a>
-<p><a href='/'>Back home</a></p>
+<a href="/stylists/new">ADD A STYLIST</a>
+<p><a href='/'>BACK HOME</a></p>

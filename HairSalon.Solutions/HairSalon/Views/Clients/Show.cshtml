@@ -3,22 +3,18 @@
   Layout = "_Layout";
 }
 
-<h1>Client Details: </h1>
+<h1>//CLIENT DETAILS// </h1>
 
-<h2>Name: @Model["client"].GetNameClient()</h2>
-<h3>Stylist: @Model["stylist"].GetName()</h3>
+<h2>NAME: @Model["client"].GetNameClient()</h2>
+<h3>STYLIST: @Model["stylist"].GetName()</h3>
 
 
 <form action="/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/delete-client" method="post">
-  <button type="submit" name="button">Delete this client</button>
+  <button type="submit" name="button">DELETE THIS CLIENT</button>
 </form>
 
 <br>
-<br>
 
-
-
-
-<a href='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit'>Edit this Client</a>
-<a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add another Client</a>
-<a href='/stylists'>View all Stylists</a>
+<a href='/stylists/@Model["stylist"].GetId()/clients/@Model["client"].GetId()/edit'>EDIT THIS CLIENT</a><BR>
+<a href='/stylists/@Model["stylist"].GetId()/clients/new'>ADD ANOTHER CLIENT</a><BR>
+<a href='/stylists'>VIEW ALL STYLISTS</a>
