@@ -19,11 +19,12 @@
 }
 </ol>
 
-<form action="/stylists/@Model.GetId()/delete-stylist" method="post">
-    <button type="submit" name="button">Delete this stylist</button>
-</form>
-
 
 <p><a href='/stylists/@Model.GetId()/clients/new'>Add a new client</a></p>
 <p><a href='/stylists'>Return to Stylist list</a></p>
+
+<br><br>
+<form action="/stylists/@Model.GetId()/delete-stylist" method="post">
+<button type="submit" name="button">Delete this stylist</button>
+</form>
 <p><a href='/'>Return to Home</a></p>
