@@ -25,7 +25,7 @@ namespace HairSalon.Models
     {
       return _specialty;
     }
-    
+
     public int GetId()
     {
       return _id;
@@ -157,9 +157,9 @@ namespace HairSalon.Models
         name.ParameterName = "@name";
         name.Value = this._name;
         cmd.Parameters.Add(name);
-        cmd.ExecuteNonQuery();
-        name.ParameterName = "@specialty";
-        specialty.Value = this._stylistSpecialty;
+        MySqlParameter specialty = new MySqlParameter();
+        specialty.ParameterName = "@specialty";
+        specialty.Value = this._specialty;
         cmd.Parameters.Add(specialty);
         cmd.ExecuteNonQuery();
         _id = (int) cmd.LastInsertedId; // <-- This line is new!
