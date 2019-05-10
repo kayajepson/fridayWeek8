@@ -6,11 +6,13 @@ namespace HairSalon.Models
   public class Stylist
   {
     private string _name;
+    private string _specialty;
     private int _id;
 
-    public Stylist(string stylistName, int id = 0)
+    public Stylist(string stylistName, string stylistSpecialty, int id = 0)
     {
       _name = stylistName;
+      _specialty = stylistSpecialty;
       _id = id;
     }
 
@@ -19,10 +21,16 @@ namespace HairSalon.Models
       return _name;
     }
 
+    public string GetSpecialty()
+    {
+      return _specialty;
+    }
+    
     public int GetId()
     {
       return _id;
     }
+
 
     public static void ClearAll()
     {
@@ -50,7 +58,8 @@ namespace HairSalon.Models
       {
         int StylistId = rdr.GetInt32(0);
         string StylistName = rdr.GetString(1);
-        Stylist newStylist = new Stylist(StylistName, StylistId);
+        string stylistSpecialty = rdr.GetString(2);
+        Stylist newStylist = new Stylist(StylistName, stylistSpecialty, StylistId);
         allStylists.Add(newStylist);
       }
       conn.Close();
@@ -74,12 +83,14 @@ namespace HairSalon.Models
         var rdr = cmd.ExecuteReader() as MySqlDataReader;
         int StylistId = 0;
         string StylistName = "";
+        string stylistSpecialty = "";
         while(rdr.Read())
         {
           StylistId = rdr.GetInt32(0);
           StylistName = rdr.GetString(1);
+          stylistSpecialty = rdr.GetString(2);
         }
-        Stylist newStylist = new Stylist(StylistName, StylistId);
+        Stylist newStylist = new Stylist(StylistName, stylistSpecialty, StylistId);
         conn.Close();
         if (conn != null)
         {
@@ -141,11 +152,15 @@ namespace HairSalon.Models
         MySqlConnection conn = DB.Connection();
         conn.Open();
         var cmd = conn.CreateCommand() as MySqlCommand;
-        cmd.CommandText = @"INSERT INTO stylists (name) VALUES (@name);";
+        cmd.CommandText = @"INSERT INTO stylists (name, specialty) VALUES (@name, @specialty);";
         MySqlParameter name = new MySqlParameter();
         name.ParameterName = "@name";
         name.Value = this._name;
         cmd.Parameters.Add(name);
+        cmd.ExecuteNonQuery();
+        name.ParameterName = "@specialty";
+        specialty.Value = this._stylistSpecialty;
+        cmd.Parameters.Add(specialty);
         cmd.ExecuteNonQuery();
         _id = (int) cmd.LastInsertedId; // <-- This line is new!
         conn.Close();
